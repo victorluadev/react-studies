@@ -1,14 +1,15 @@
 import React from "react";
 import Item from "./Item";
+import { ITasks } from "../../types/tasks";
 
 import style from './List.module.scss';
 
-import { ITasks } from "../../types/tasks";
 
 interface Props {
   tasks: ITasks[],
   selectTask: (selectedTask: ITasks) => void
 }
+
 function List({ tasks, selectTask }: Props) {
   
 

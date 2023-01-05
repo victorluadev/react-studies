@@ -9,7 +9,7 @@ export default function Item({task, time, selected, completed, id, selectTask}: 
   
   return(
     <li 
-      className={style.item} 
+      className={`${style.item} ${selected ? style.itemSelecionado: ''}`} 
       onClick={() => selectTask(
         {
           task,
