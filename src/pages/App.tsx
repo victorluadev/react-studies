@@ -8,11 +8,19 @@ import style from './App.module.scss';
 
 function App() {
   const [tasks, setTasks] = useState<ITasks[] | []>([]);
-  
+  const [selected, setSelected] = useState<ITasks>()
+
+  function selectTask(selectedTask: ITasks) {
+    setSelected(selectedTask);
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks}/>
-      <List tasks={tasks}/>
+      <List 
+        tasks={tasks} 
+        selectTask={selectTask}  
+      />
       <Timer />
     </div>
   );

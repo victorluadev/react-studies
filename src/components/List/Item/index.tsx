@@ -1,10 +1,25 @@
+import { ITasks } from "../../../types/tasks";
 import style from "../List.module.scss";
 
-export default function Item({task, time}: { task: String, time: String }) {
-  
+interface Props extends ITasks {
+  selectTask: (selectedTask: ITasks) => void
+}
+
+export default function Item({task, time, selected, completed, id, selectTask}: Props) {
   
   return(
-    <li className={style.item}>
+    <li 
+      className={style.item} 
+      onClick={() => selectTask(
+        {
+          task,
+          time,
+          selected,
+          completed,
+          id
+        }
+      )}
+    >
       <h3>
         {task}
       </h3>
