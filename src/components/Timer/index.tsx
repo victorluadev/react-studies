@@ -9,9 +9,10 @@ import style from './Timer.module.scss';
 
 interface Props {
   selected: ITasks | undefined;
+  closeTask: () => void;
 }
 
-export default function Timer({ selected } : Props) {
+export default function Timer({ selected, closeTask } : Props) {
   const [time, setTime] = useState<number>();  
 
   useEffect(() => {
@@ -27,6 +28,8 @@ export default function Timer({ selected } : Props) {
 
         return regressive(count - 1)
       }
+
+      closeTask();
     }, 1000)
   }
 
